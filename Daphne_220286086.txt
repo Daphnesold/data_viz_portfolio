@@ -1,0 +1,13 @@
+The drake_data.csv file is a lyrics dataset from Genius.com that has previously been used to predict song popularity based on lyrics (https://www.kaggle.com/code/thomaskonstantin/drake-lyrics-eda-and-views-prediction). Here, it was used to explore the relationship between lyric popularity and general popularity (from the original Spotify dataset), as well as how track views are distributed based on speechiness.
+
+Since not all songs appeared in both datasets, the data had to be tidied. Songs were grouped by album and only Drake’s tracks were included by removing other artists.A column was added containing clean song titles (no captions or extra numbers), making it easier to compare and manipulate the data. Some tracks were duplicated in the Spotify dataset due to being picked from multiple playlists, so they were filtered as to keep only the versions with the earliest release date.
+
+Songs featuring other artists were excluded, as they created filtering issues. Some final fixes were made manually to remove duplicates or errors that became visible after tidying in the drake data set. All of these changes and cleanups were put into _clean data sets.
+
+Next, the avergae lyric and track views per album was calculated, making sure that variables were in the right class (numeric), like track views. These values were summarized in a new table summary_all which was used to create the graphs.
+
+A scatter plot wasn’t ideal for showing the correlation between track views and popularity, since there was no continuous time trend. A heatmap worked better for highlighting patterns: similar colours between variables suggest a connection between people listening to and looking up lyrics. This was seen in albums like “Views”, “Take Care”, and “Nothing Was the Same”. However, some songs showed no correlation, meaning people might search for the lyrics without listening to the track.
+
+As a final step, a plot was generated to reveal the main influences on lyric popularity. It was suspected that it might relate to the vocal aspects of the song, so a linear model was used to test whether songs with more spoken words (more rap) led to more lyric views. The hypothesis was that the more Drake raps, the more people might want to look up the lyrics.
+
+The results, however, proved the opposite. Songs with fewer lyrics tended to have more lyric views. This could be due to a limitation, some albums had fewer songs included due to filtering. This could impact the averages and reduce accuracy, so including an equal number of tracks per album in a future dataset would improve the results.
